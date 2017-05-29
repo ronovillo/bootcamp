@@ -9,6 +9,7 @@
   exit;
  }
  
+ echo 'HOOLALALALAL';
  $error = false;
  
  if( isset($_POST['btn-login']) ) { 
