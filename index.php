@@ -8,7 +8,7 @@
   header("Location: home.php");
   exit;
  }
-
+echo"modification";
  $error = false;
 
  if( isset($_POST['btn-login']) ) {
