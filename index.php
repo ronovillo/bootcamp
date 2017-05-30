@@ -9,8 +9,6 @@
   exit;
  }
 
- echo "Hola Mundo!!!";
- echo 'franco';
  $error = false;
 
  if( isset($_POST['btn-login']) ) {

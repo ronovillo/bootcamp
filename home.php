@@ -2,7 +2,7 @@
  ob_start();
  session_start();
  require_once 'dbconnect.php';
- 
+
  // if session is not set this will redirect to login page
  if( !isset($_SESSION['user']) ) {
   header("Location: index.php");
@@ -47,10 +47,11 @@
             <li><a href="http://www.codingcage.com/search/label/PHP">PHP</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            
+
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-     <span class="glyphicon glyphicon-user"></span>&nbsp;Hi' <?php echo $userRow['userEmail']; ?>&nbsp;<span class="caret"></span></a>
+                  <span class="glyphicon glyphicon-user"></span>&nbsp;Hi' <?php echo $userRow['userEmail']; ?>&nbsp;<span class="caret"></span>
+              </a>
               <ul class="dropdown-menu">
                 <li><a href="logout.php?logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Sign Out</a></li>
               </ul>
@@ -58,27 +59,27 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </nav> 
+    </nav>
 
  <div id="wrapper">
 
  <div class="container">
-    
+
      <div class="page-header">
      <h3>Coding Cage - Programming Blog</h3>
      </div>
-        
+
         <div class="row">
         <div class="col-lg-12">
         <h1>Focuses on PHP, MySQL, Ajax, jQuery, Web Design and more...</h1>
         </div>
         </div>
-    
+
     </div>
-    
+
     </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
 <?php ob_end_flush(); ?>
