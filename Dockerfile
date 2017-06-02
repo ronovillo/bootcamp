@@ -82,14 +82,9 @@ RUN set -x \
 
 COPY httpd-foreground /usr/local/bin/
 
-EXPOSE 80
-CMD ["httpd-foreground"]
-
 COPY . /etc/apache2/sites-available/000-default.conf
 
 COPY . /var/www/
 
 EXPOSE 80
-EXPOSE 443
-
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["httpd-foreground"]
