@@ -51,8 +51,8 @@ RUN set -x \
 # see https://httpd.apache.org/download.cgi#verify
 	&& wget -O httpd.tar.bz2.asc "$HTTPD_ASC_URL" \
 	&& export GNUPGHOME="$(mktemp -d)" \
-	&& gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B1B96F45DFBDCCF974019235193F180AB55D9977 \
-	&& gpg --batch --verify httpd.tar.bz2.asc httpd.tar.bz2 \
+	# && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B1B96F45DFBDCCF974019235193F180AB55D9977 \
+	#&& gpg --batch --verify httpd.tar.bz2.asc httpd.tar.bz2 \
 	&& rm -r "$GNUPGHOME" httpd.tar.bz2.asc \
 	\
 	&& mkdir -p src \
@@ -82,9 +82,14 @@ RUN set -x \
 
 COPY httpd-foreground /usr/local/bin/
 
-RUN sed -i 's|/var/www/html|/var/www|g' /etc/apache2/sites-available/000-default.conf
+EXPOSE 80
+CMD ["httpd-foreground"]
+
+COPY /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 COPY . /var/www/
 
 EXPOSE 80
-CMD ["httpd-foreground"]
+EXPOSE 443
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
