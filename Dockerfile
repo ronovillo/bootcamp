@@ -80,11 +80,11 @@ RUN set -x \
 	\
 	&& apt-get purge -y --auto-remove $buildDeps
 
-COPY httpd-foreground /usr/local/bin/
-
 COPY . /etc/apache2/sites-available/000-default.conf
 
 COPY . /var/www/
+
+COPY httpd-foreground /usr/local/bin/
 
 EXPOSE 80
 CMD ["httpd-foreground"]
