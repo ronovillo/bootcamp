@@ -85,7 +85,7 @@ COPY httpd-foreground /usr/local/bin/
 EXPOSE 80
 CMD ["httpd-foreground"]
 
-COPY /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY . /etc/apache2/sites-available/000-default.conf
 
 COPY . /var/www/
 
