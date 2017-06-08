@@ -4,7 +4,7 @@ RUN a2dissite 000-default.conf
 
 COPY 000-default.conf /etc/apache2/sites-available/
 
-COPY ./codigo /var/wwww
+COPY ./codigo /var/www
 
 RUN a2ensite 000-default.conf
 
