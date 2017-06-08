@@ -10,5 +10,5 @@ COPY ./codigo /var/www
 
 WORKDIR /var/www
 
-RUN a2ensite 000-default.conf
+EXPOSE 3306
 
