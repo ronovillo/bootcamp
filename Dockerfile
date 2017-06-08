@@ -4,6 +4,8 @@ RUN a2dissite 000-default.conf
 
 COPY 000-default.conf /etc/apache2/sites-available/
 
+RUN rm -r /var/www/html
+
 COPY ./codigo /var/www
 
 WORKDIR /var/www
