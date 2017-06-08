@@ -8,4 +8,3 @@ COPY ./codigo /var/wwww
 
 RUN a2ensite 000-default.conf
 
-RUN service apache2 reload
