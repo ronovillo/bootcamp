@@ -16,4 +16,4 @@ EXPOSE 80
 
 RUN a2ensite 000-default.conf
 
-CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
+RUN service apache2 reload
