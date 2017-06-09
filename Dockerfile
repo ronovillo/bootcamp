@@ -12,3 +12,4 @@ WORKDIR /var/www
 
 EXPOSE 3306
 
+EXPOSE 80
