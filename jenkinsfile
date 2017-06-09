@@ -12,5 +12,4 @@ node("docker") {
     
         stage "publish"
             echo 'Deploy'
-    }
 }
