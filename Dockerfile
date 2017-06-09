@@ -16,4 +16,4 @@ EXPOSE 80
 
 RUN a2ensite 000-default.conf
 
-RUN service apache2 reload
+ENTRYPOINT service apache2 restart && bash
