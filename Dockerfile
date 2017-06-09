@@ -16,4 +16,5 @@ EXPOSE 80
 
 RUN a2ensite 000-default.conf
 
-ENTRYPOINT service apache2 restart && bash
+CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
+
