@@ -16,5 +16,5 @@ EXPOSE 80
 
 RUN a2ensite 000-default.conf
 
-ENTRYPOINT ["/etc/init.d/apache2", "reload"]
+ENTRYPOINT ["/usr/sbin/apache2", "reload"]
 
