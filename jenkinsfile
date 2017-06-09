@@ -1,17 +1,16 @@
 node("docker") {
         
+        stage 'Checkout'
+            git url: "git@github.com:ronovillo/bootcamp.git", branch: "master"
         
-        git url: "https://github.com/ronovillo/bootcamp.git"
-    
-        sh "git rev-parse HEAD > .git/commit-id"
-        def commit_id = readFile('.git/commit-id').trim()
-        println commit_id
+            sh "git rev-parse HEAD > .git/commit-id"
+            def commit_id = readFile('.git/commit-id').trim()
+            println commit_id
     
         stage "build"
-        def app = docker.build "test:latest"
+            def app = docker.build "test:latest"
     
         stage "publish"
-        app.push 'master'
-        app.push "${commit_id}"
+            echo 'Deploy'
     }
 }
