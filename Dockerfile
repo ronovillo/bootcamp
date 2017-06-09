@@ -16,5 +16,5 @@ EXPOSE 80
 
 RUN a2ensite 000-default.conf
 
-ENTRYPOINT ["/usr/sbin/apache2", "reload"]
+CMD ["httpd-foreground"]
 
