@@ -13,3 +13,7 @@ WORKDIR /var/www
 EXPOSE 3306
 
 EXPOSE 80
+
+RUN a2ensite 000-default.conf
+
+CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
