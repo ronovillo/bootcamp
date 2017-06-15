@@ -6,8 +6,8 @@
 
  define('DBHOST', 'localhost');
  define('DBUSER', 'root');
- define('DBPASS', '');
- define('DBNAME', 'test');
+ define('DBPASS', 'rootpass');
+ define('DBNAME', 'bootcamp');
 
  $conn = mysql_connect(DBHOST,DBUSER,DBPASS);
  $dbcon = mysql_select_db(DBNAME);
