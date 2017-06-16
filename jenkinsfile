@@ -24,6 +24,6 @@ node {
         stage ("Create Container") {
 
         	//sh "ssh -i /var/lib/jenkins/.ssh/jenkins vagrant@192.168.1.100 docker rm -f ${(docker ps -a -q)}"
-        	sh "ssh -i /var/lib/jenkins/.ssh/jenkins vagrant@192.168.1.100 dockerdocker run -d -p 8080:80 192.168.1.120:5000/test:latest"
+        	sh "ssh -i /var/lib/jenkins/.ssh/jenkins vagrant@192.168.1.100 docker run -d -p 8080:80 192.168.1.120:5000/test:latest"
         }
 }
