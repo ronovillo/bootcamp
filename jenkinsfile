@@ -1,7 +1,7 @@
 node {
         
         stage 'Checkout'{
-            git 'https://github.com/ronovillo/bootcamp.git'
+            git url: 'https://github.com/ronovillo/bootcamp.git', branch: 'master'
         }
     
         stage "Build Image"{
