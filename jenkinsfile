@@ -1,4 +1,4 @@
-node("docker") {
+node {
         
         stage 'Checkout'
             git url: "git@github.com:ronovillo/bootcamp.git", branch: "master"
