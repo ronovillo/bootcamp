@@ -7,9 +7,23 @@ node("docker") {
             def commit_id = readFile('.git/commit-id').trim()
             println commit_id
     
-        stage "build"
-            def app = docker.build "test:latest"
-    
-        stage "publish"
-            echo 'Deploy'
+        stage "Build Image"
+            
+            sh "docker rmi -f test:latest"
+            sh "docker build -t 192.168.1.120:5000/test:latest ."
+
+        stage "Push to Registry"
+            sh "docker push 192.168.1.120:5000/test:latest"
+
+        stage "Pull From Registry DEV"
+
+        	sh "ssh -i jenkins vagrant@192.168.1.100 docker rmi -f 192.168.1.120:5000/test:latest"
+        	sh "ssh -i jenkins vagrant@192.168.1.100 docker pull 192.168.1.120:5000/test:latest"
+        	sh "ssh -i jenkins vagrant@192.168.1.100 docker pull 192.168.1.120:5000/test:latest"
+
+        stage "Create Container"
+
+        	sh "ssh -i jenkins vagrant@192.168.1.100 docker rm -f $(docker ps -a -q)"
+        	sh "ssh -i jenkins vagrant@192.168.1.100 docker rm -f $(docker ps -a -q)"
+        	docker run -d -p 8080:80 192.168.1.120:5000/test:latest
 }
